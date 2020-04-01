@@ -18,5 +18,5 @@ private class TemperatureConverterTest {
         Decimal celsius = TemperatureConverter.FahrenheitToCelsius(-10);
         System.assertEquals(-23.33,celsius);
     }
-      
+       
 }
