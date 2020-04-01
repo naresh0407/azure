@@ -1,0 +1,43 @@
+#Your build pipeline references an undefined variable named ‘Parameters.antBuildFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references a secret variable named ‘sf.password’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
+parameters:
+- name: SALESFORCE_TESTLEVEL
+  displayName: TESTLEVEL_VALIDATION
+  type: string
+  default: NoTestRun
+  values:
+  - NoTestRun
+  - RunSpecifiedTests
+  - RunLocalTests
+
+
+variables:
+  sf.username: 'naresh.nadimpalli@accenture.com'
+  sf.serverurl: 'https://login.salesforce.com'
+  sf.password: 'Accenture@4321y4282ivNPjfdkhDbiTbZz0QXY'
+  
+  
+steps:
+- task: Ant@1
+  displayName: PreDeployValidation
+  inputs:
+    buildFile: '/home/vsts/work/1/s/build.xml'
+    options: '-Dsf.username=$(sf.username) -Dsf.password=$(sf.password) -DSALESFORCE_TESTLEVEL=${{ parameters.SALESFORCE_TESTLEVEL }} -Dsf.serverurl=https://login.salesforce.com'
+    targets: predeploy
+    publishJUnitResults: false
+
+- task: Ant@1
+  displayName: PMD
+  inputs:
+    targets: pmd
+    publishJUnitResults: false
+- task: Ant@1
+  displayName: Deployment
+  inputs:
+    options: '-Dsf.username=$(sf.username) -Dsf.password=$(sf.password) -DSALESFORCE_TESTLEVEL=${{ parameters.SALESFORCE_TESTLEVEL }} -Dsf.serverurl=https://login.salesforce.com'
+    targets: deploy
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    artifact: outputPMD.html
+

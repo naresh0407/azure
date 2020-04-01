@@ -1,0 +1,7 @@
+<design:component>
+                <design:attribute name="objectName"                  label="Object Name"/>
+    <design:attribute name="fieldName"                                 label="Field Name"/>
+    <design:attribute name="value"                                                           label="Value Name"/>
+    <design:attribute name="label"                                                            label="Default Value"/>
+    <design:attribute name="defaultValue"                            label="Default Picklist Label"/>
+</design:component>
