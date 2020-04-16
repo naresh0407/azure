@@ -12,9 +12,7 @@ parameters:
 
 
 variables:
-  sf.username: 'naresh.nadimpalli@accenture.com'
-  sf.serverurl: 'https://login.salesforce.com'
-  sf.password: 'Accenture@4321y4282ivNPjfdkhDbiTbZz0QXY'
+ 
   
   
 steps:
