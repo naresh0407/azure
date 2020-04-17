@@ -3,3 +3,4 @@
 Referenced Packages/**
 *salesforce.schema*
 TemperatureConverter1.cls
+TemperatureConverterTest.cls
