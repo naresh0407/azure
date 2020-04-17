@@ -1,4 +1,4 @@
-<!--SUSE Service-->
+<!--SUSE Serviceeeee-->
 <aura:component controller="PicklistSelectController" implements="lightning:availableForFlowScreens"
                 description="Renders a lightning:select component with options populated from a picklist field." access="global">
                 
