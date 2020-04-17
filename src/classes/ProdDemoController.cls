@@ -1,6 +1,6 @@
 public class ProdDemoController {
 	
-	//SSesssssresult methodd
+	//SSSesssssresult methodd
     public PageReference seeresult() {
         return null;
     }
