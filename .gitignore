@@ -6,7 +6,7 @@
 
 
 deploy-sf/
-
+TemperatureConverterTest.cls
 salesforce.schema
 .settings
 .settings/
