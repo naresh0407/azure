@@ -11,3 +11,4 @@ salesforce.schema
 .settings
 .settings/
 .project
+TemperatureConverterTest.cls
