@@ -64,7 +64,7 @@
 				<arg value="diff" />
 				<arg value="-r" />
 				<arg value="--name-only" />
-				<arg value="159be1594a697b00a5b739dcc9aacb7928211d9d" />
+				<arg value="40ef7b7ef1f486c57163e5bdd9af44e7fa8b0669" />
 				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
