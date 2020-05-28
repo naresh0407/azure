@@ -1,37 +1,9 @@
-<project name="project" default="sync" xmlns:sf="antlib:com.salesforce">
-	<property environment="env"/>
-    <property name="sf.username" value="${sf.username}"/>
-<property name="sf.password" value="${sf.password}"/>
-<property name="sf.serverurl" value="${sf.serverurl}"/>    
-<property name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}"/> 
-<property name="SALESFORCE_TESTLEVEL" value="${SALESFORCE_TESTLEVEL}"/> 
 
-
-  <property file="build.properties"/>
-  <path id="pmd.classpath">
-    <fileset dir="./lib">
-      <include name="**/*.jar" />
-    </fileset>
-  </path>
-
-  
-
-  <!-- <property name="sf.fetchFromDuration"      value="${env.fetchFromDuration}"/> -->
-	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
-		<classpath>
-			<pathelement location="lib/ant-salesforce.jar"/>
-		</classpath>
-	</taskdef>
-	<taskdef resource="net/sf/antcontrib/antlib.xml">
+<taskdef resource="net/sf/antcontrib/antlib.xml">
 		<classpath>
 			<pathelement location="lib/ant-contrib-1.0b3.jar"/>
 		</classpath>
-	</taskdef>
-	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask">
-		<classpath>
-			<pathelement location="lib/xmltask.jar"/>
-		</classpath>
-	</taskdef>
+</taskdef>
 <macrodef name="gitDiff">
 		<sequential>
 		
@@ -39,7 +11,7 @@
 				<arg value="diff" />
 				<arg value="-r" />
 				<arg value="--name-only" />
-				<arg value="40ef7b7ef1f486c57163e5bdd9af44e7fa8b0669" />
+				<arg value="842466def3ad873806c9d8aa713a1f51576c750e" />
 				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
@@ -90,4 +62,4 @@
 			</sequential>
 		</for>
 </target>
-</project>
+view rawbuild.xml hosted with ❤ by GitHub
