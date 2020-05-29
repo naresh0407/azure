@@ -1,3 +1,26 @@
+<project name="project" default="sync" xmlns:sf="antlib:com.salesforce">
+  <property file="build.properties"/>
+  <path id="pmd.classpath">
+    <fileset dir="./lib">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+  
+  <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+		<classpath>
+			<pathelement location="lib/ant-salesforce.jar"/>
+		</classpath>
+	</taskdef>
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="lib/ant-contrib-1.0b3.jar"/>
+		</classpath>
+	</taskdef>
+	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask">
+		<classpath>
+			<pathelement location="lib/xmltask.jar"/>
+		</classpath>
+	</taskdef>
 
 <taskdef resource="net/sf/antcontrib/antlib.xml">
 		<classpath>
@@ -32,6 +55,44 @@
 						<matches string="@{currentDiff}" pattern="force-app/"/>
 					</and>
 					<then>
+						<if>
+							<matches string="@{currentDiff}" pattern="force-app/main/default/aura/"/>
+							<then>
+								<propertyregex
+									property="auraFolder"
+									input="@{currentDiff}"
+									regexp="force-app\/([a-zA-Z\_]*)\/[a-zA-Z0-9\/\.\_]*\/([a-zA-Z\_]*)\/[a-zA-Z0-9\/\.\_]*"
+									select="\1"
+									casesensitive="true" 
+									override="true"
+									defaultValue=""/>
+								<if>
+									<not>
+										<available file="${sf.deployDir}/aura/${auraFolder}" type="dir"/>
+									</not>
+									<then>
+										<echo>Current Component : ${auraFolder}</echo>
+										<copy todir="${sf.deployDir}" verbose="false">
+											<fileset dir="force-app">
+												<include name="aura/${auraFolder}/**" />
+											</fileset>
+										</copy>
+										<propertyregex
+											property="component"
+											input="@{currentDiff}"
+											regexp="force-app\/([a-zA-Z]*)\/[a-zA-Z0-9\/\.\_]*"
+											select="\1"
+											casesensitive="true" 
+											override="true"
+											defaultValue=""/>
+										
+									</then> 
+								</if>
+							</then>
+							
+								</if>
+							</then>
+					<else>
 						<propertyregex
 							property="currentDiffWithoutSRC"
 							input="@{currentDiff}"
@@ -57,9 +118,10 @@
 								</copy>
 							</then>
 						</if>
-					</then>
+					</else>
+					
 				</if>
 			</sequential>
 		</for>
 </target>
-view rawbuild.xml hosted with ❤ by GitHub
+</project>
