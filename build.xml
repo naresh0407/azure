@@ -4,7 +4,7 @@
 <property name="sf.password" value="${sf.password}"/>
 <property name="sf.serverurl" value="${sf.serverurl}"/>    
 <property name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}"/> 
-<property name="SALESFORCE_TESTLEVEL" value="NoTestRun"/> 
+<property name="testLevel" value="NoTestRun"/> 
 
 
   <property file="build.properties"/>
@@ -287,7 +287,7 @@
 <property name="sf.password" value="${sf.password}"/>
 <property name="sf.serverurl" value="${sf.serverurl}"/>    
 <property name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}"/> 
-<property name="SALESFORCE_TESTLEVEL" value="NoTestRun"/> 
+<property name="testLevel" value="NoTestRun"/> 
 
 	
 <target name="predeploy">
@@ -298,7 +298,7 @@
       <param name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}" />
     </antcall>
 	 
-	 <runSpecifiedTests username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl} SALESFORCE_TESTLEVEL="NoTestRun""/>
+	 <runSpecifiedTests username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl} testLevel="NoTestRun""/>
 	
  </target>
 
