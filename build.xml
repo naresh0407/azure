@@ -8,14 +8,7 @@
 
 
   <property file="build.properties"/>
-  <path id="pmd.classpath">
-    <fileset dir="./lib">
-      <include name="**/*.jar" />
-    </fileset>
-  </path>
-
-  <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath" />
-  <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask" classpathref="pmd.classpath" />
+  
 
   <!-- <property name="sf.fetchFromDuration"      value="${env.fetchFromDuration}"/> -->
 	<taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
@@ -34,28 +27,7 @@
 		</classpath>
 	</taskdef>
 
-  <target name="pmd">
-  <pmd shortFilenames="true" >
-      <formatter type="${pmd.format}" toFile="outputPMD.${pmd.format}" />
-   
-      <ruleset>rulesets/apex/ruleset.xml</ruleset>
-
-         <ruleset>rulesets/apex/complexity.xml</ruleset>
-      <ruleset>rulesets/apex/performance.xml</ruleset>
-      <ruleset>rulesets/apex/style.xml</ruleset>
-      <ruleset>rulesets/apex/braces.xml</ruleset>
-      <ruleset>rulesets/apex/apexunit.xml</ruleset>
-      <ruleset>rulesets/apex/security.xml</ruleset>
-      <ruleset>rulesets/apex/complexity.xml</ruleset>
-      <ruleset>rulesets/apex/empty.xml</ruleset>
-      <ruleset>rulesets/apex/metrics.xml</ruleset>
-      <fileset dir="./src">
-        <include name="**/*.cls"/>
-        <include name="**/*.trigger"/>
-      </fileset>
-   </pmd>
-   </target>
-	
+ 
 	
     <macrodef name="gitDiff">
 		<sequential>
@@ -64,7 +36,7 @@
 				<arg value="diff" />
 				<arg value="-r" />
 				<arg value="--name-only" />
-				<arg value="088c9867a6c305e9f06572fd049f06749c6f8f24" />
+				<arg value="983df7ff6f164276da4634be0d6d254e1fec01a6" />
 				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
