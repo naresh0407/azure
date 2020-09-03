@@ -298,7 +298,7 @@
       <param name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}" />
     </antcall>
 	 
-	 <runSpecifiedTests username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}"/>
+	 <runSpecifiedTests username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl} SALESFORCE_TESTLEVEL="NoTestRun""/>
 	
  </target>
 
