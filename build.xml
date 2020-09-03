@@ -56,9 +56,9 @@
 		var source = project.getProperty("sf.deployDir");
 		
 		var specifiedTest = project.getProperty("SALESFORCE_TESTCLASSES");
-		var SALESFORCE_TESTLEVEL = project.getProperty("SALESFORCE_TESTLEVEL");
+		var SALESFORCE_TESTLEVEL = project.getProperty("testLevel");
 		
-		if(username!=null && password!=null && serverurl!=null && source!=null && SALESFORCE_TESTLEVEL=="RunSpecifiedTests"){
+		if(username!=null && password!=null && serverurl!=null && source!=null && testLevel=="RunSpecifiedTests"){
 			deployTask.setUsername(username);
 			deployTask.setPassword(password);
     	    		deployTask.setServerURL(serverurl);
