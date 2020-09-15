@@ -26,7 +26,9 @@
 			<pathelement location="lib/xmltask.jar"/>
 		</classpath>
 	</taskdef>
-
+  <target name="deployCodeCheckOnly">
+      <sf:deploy username="${sf.username}" password="${sf.password}"  serverurl="${sf.serverurl}"  deployRoot="../src" checkOnly="true"/>
+    </target>
  
 	
     <macrodef name="gitDiff">
