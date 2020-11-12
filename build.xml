@@ -1,11 +1,12 @@
 <project name="project" default="sync" xmlns:sf="antlib:com.salesforce">
 	<property environment="env"/>
-    <property name="sf.username" value="${sf.username}"/>
-<property name="sf.password" value="${sf.password}"/>
-<property name="sf.serverurl" value="https://login.salesforce.com"/>    
+     <property name="sf.username" value="${sfdc.username}"/>
+<property name="sf.password" value="${sfdc.password}"/>
+<property name="sf.serverurl" value="${sf.serverurl}"/>   
 <property name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}"/> 
 <property name="testlevel" value="NoTestRun"/> 
-
+<loadfile property="version"
+          srcFile="version.txt"/>
 
   <property file="build.properties"/>
   
@@ -36,7 +37,7 @@
 				<arg value="diff" />
 				<arg value="-r" />
 				<arg value="--name-only" />
-				<arg value="cf2a6d680b9bf7a676f4070f91d438f312710dae" />
+				<arg value=${version}/>
 				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
@@ -298,7 +299,7 @@
       <param name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}" />
     </antcall>
 	 
-	 <runSpecifiedTests username="naresh2389@gmail.com" password="salesforce$1234XIUl9KtBgiDfAOZ6oTjZvjunR" serverurl="https://login.salesforce.com"/>
+	 <runSpecifiedTests username="naresh2389@gmail.com"  password="salesforce@1234Z4Au4GjlVwT744l58pA2g7GS" serverurl="https://login.salesforce.com"/>
 	
  </target>
 
@@ -309,8 +310,7 @@
 
     <sf:deploy
             singlePackage="true"
-            username="naresh2389@gmail.com"
-      password="salesforce$1234XIUl9KtBgiDfAOZ6oTjZvjunR"
+            username="${sf.username}"  password="${sf.password}"
       serverurl="https://login.salesforce.com"
             CHECKONLY="true"
             deployRoot="./src"
@@ -324,7 +324,7 @@
 
       <param name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}" />
     </antcall>
-	 <runSpecifiedTestsdeploy username="naresh2389@gmail.com"  password="salesforce$1234XIUl9KtBgiDfAOZ6oTjZvjunR" serverurl="https://login.salesforce.com"/>
+	 <runSpecifiedTestsdeploy username="naresh2389@gmail.com"  password="salesforce@1234Z4Au4GjlVwT744l58pA2g7GS" serverurl="https://login.salesforce.com"/>
 	 
 	
 </target>
