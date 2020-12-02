@@ -299,7 +299,7 @@
       <param name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}" />
     </antcall>
 	 
-	 <runSpecifiedTests username="naresh2389@gmail.com"  password="salesforce@1234XIUl9KtBgiDfAOZ6oTjZvjunR" serverurl="https://login.salesforce.com"/>
+	 <runSpecifiedTests username="naresh2389@gmail.com"  password="salesforce@1234hm2G7sojPIu0OuSSw5YYaqyl" serverurl="https://login.salesforce.com"/>
 	
  </target>
 
