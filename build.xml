@@ -5,8 +5,8 @@
 <property name="sf.serverurl" value="${sf.serverurl}"/>   
 <property name="SALESFORCE_TESTCLASSES" value="${SALESFORCE_TESTCLASSES}"/> 
 <property name="testlevel" value="NoTestRun"/> 
-<loadfile property="version"
-          srcFile="version.txt"/>
+  <!--<loadfile property="version"
+          srcFile="version.txt"/> -->
 
   <property file="build.properties"/>
   
