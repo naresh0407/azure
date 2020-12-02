@@ -37,7 +37,7 @@
 				<arg value="diff" />
 				<arg value="-r" />
 				<arg value="--name-only" />
-				<arg value=${version}/>
+				<arg value="cf2a6d680b9bf7a676f4070f91d438f312710dae"/>
 				<arg value="HEAD" />
 			</exec>
 			<echo>${git.diff}</echo>
